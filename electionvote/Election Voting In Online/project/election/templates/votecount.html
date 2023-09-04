@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>VOTE COUNT</h1>
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">S.No.</th>
+                <th scope="col">Candidate</th>
+                <th scope="col">Vote Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for candidates in candidate %}
+            <tr>
+                <th>{{forloop.counter}}</th>
+                <td>{{ candidates.cname }}</td>
+                <td>{{ candidates.voted }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

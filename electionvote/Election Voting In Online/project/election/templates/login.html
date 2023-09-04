@@ -1,0 +1,22 @@
+ {% extends 'base.html' %}   
+{% block content %} 
+    <br>
+    <center><h1>Login</h1></center>
+    {% if error_message %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{ error_message }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endif %}
+<div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+    <form method="post">
+        {% csrf_token %}
+        <label for="voter_id" class="form-label">Voter ID:</label>
+        <input type="text" id="voter_id" name="voter_id" required class="form-control"><br>
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" name="password" required class="form-control"><br>
+        <a href="{% url 'register' %}">Register Here!</a><br><br>
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
+</div>
+{% endblock %}

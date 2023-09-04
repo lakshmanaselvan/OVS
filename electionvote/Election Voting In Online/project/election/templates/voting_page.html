@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <center><h1>VOTE</h1></center>
+    <form method="post">
+        {% csrf_token %}
+        {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+        <h3>SELECT THE CANDIDATE</h3>
+        <select name="Candidate" class="form-select">
+            <option value="" selected disabled>Select a candidate</option>
+            {% for candidate in candidates %}
+                <option value="{{ candidate.cid }}">{{ candidate.cname }} - {{ candidate.partyname }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <center><input type="submit" value="Vote" class="btn btn-primary"></center>
+    </form>
+{% endblock %}
+
